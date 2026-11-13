@@ -78,3 +78,12 @@ window.addEventListener("keydown", (event) => {
     goTo(index - 1);
   }
 });
+
+document.querySelectorAll(".section-peek").forEach((peek) => {
+  peek.addEventListener("click", (event) => {
+    event.preventDefault();
+    const targetId = peek.getAttribute("href").slice(1);
+    const targetIndex = sections.findIndex((sec) => sec.id === targetId);
+    if (targetIndex > -1) goTo(targetIndex);
+  });
+});

@@ -96,10 +96,49 @@ main::-webkit-scrollbar {
 }
 
 section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  padding: 52px 68px 48px;
+  padding: 28px 68px;
+}
+
+.section-body {
+  margin: auto 0;
+}
+
+.section-peek {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  color: rgba(255, 219, 137, 0.45);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.section-peek::before {
+  content: "";
+  width: 3px;
+  height: 16px;
+  border-radius: 2px;
+  background: rgba(255, 219, 137, 0.45);
+  flex: none;
+  transition: background-color 0.2s ease;
+}
+
+.section-peek:hover {
+  color: var(--cream);
+}
+
+.section-peek:hover::before {
+  background: var(--cream);
 }
 
 h2 {
@@ -151,13 +190,14 @@ h2::before {
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
+  margin-top: 12px;
 }
 
 .profile {
   width: min(320px, 38%);
   margin: 4px 0 0;
   padding: 26px 28px 24px;
-  border-radius: 26px;
+  border-radius: 20px;
   background: var(--card);
 }
 
@@ -165,8 +205,8 @@ h2::before {
   margin: 0;
 }
 
-.profile-name {
-  margin-bottom: 8px;
+.profile .profile-name {
+  margin-bottom: 4px;
   color: var(--cream);
   font-size: 14px;
   font-weight: 600;
@@ -174,36 +214,31 @@ h2::before {
 
 .profile p:not(.profile-name):not(.availability) {
   font-size: 12px;
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
-.availability-label {
-  margin-top: 16px;
+.profile .availability-label {
+  margin-top: 22px;
+  color: rgba(247, 247, 247, 0.72);
 }
 
-.availability {
+.profile .availability {
   color: var(--cream);
   font-size: 14px;
   font-weight: 600;
+  line-height: 1.4;
 }
 
 .about-copy {
   max-width: 740px;
-  margin-top: 12vh;
+  margin-top: 6vh;
 }
 
 .about-copy p {
   margin: 16px 0 0;
   font-size: 14px;
   line-height: 1.65;
-}
-
-#skills,
-#projects,
-#contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: justify;
 }
 
 .skills {
@@ -306,18 +341,13 @@ h2::before {
   transform: translateY(-2px);
 }
 
-#contact {
-  justify-content: flex-start;
-  padding-top: 64px;
-}
-
 .contact-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 48px;
   width: min(860px, 100%);
-  margin: auto;
+  margin: 32px auto 0;
   padding: 64px 72px;
   border: 1px solid rgba(255, 255, 255, 0.92);
 }
@@ -366,7 +396,7 @@ a:focus-visible {
   }
 
   section {
-    padding: 40px 36px;
+    padding: 28px 36px;
   }
 
   .wordmark {
@@ -389,7 +419,8 @@ a:focus-visible {
     height: 100%;
   }
 
-  .rail-left {
+  .rail-left,
+  .section-peek {
     display: none;
   }
 
@@ -424,6 +455,7 @@ a:focus-visible {
 
   .hero {
     flex-direction: column;
+    margin-top: 0;
   }
 
   .profile {
@@ -432,6 +464,10 @@ a:focus-visible {
 
   .about-copy {
     margin-top: 40px;
+  }
+
+  .about-copy p {
+    text-align: left;
   }
 
   .wordmark {
