@@ -384,14 +384,15 @@ h2::before {
 }
 
 .contact-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+  justify-items: center;
+  gap: 24px;
   width: min(680px, 100%);
   aspect-ratio: 1.95 / 1;
-  margin: auto;
-  padding: 48px 68px;
+  margin: 28px auto 0;
+  padding: 40px 32px;
   border-radius: 0;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.78);
